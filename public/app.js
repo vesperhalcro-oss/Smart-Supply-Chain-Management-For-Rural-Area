@@ -28,7 +28,10 @@ function updateQueue() {
 
 function openSection(section) {
   $$(".nav-item").forEach((item) => item.classList.toggle("active", item.dataset.section === section));
-  if (section !== "overview") toast(`${section[0].toUpperCase()}${section.slice(1)} view is ready in this MVP.`);
+  $$(".view-panel").forEach((panel) => { panel.hidden = panel.id !== `${section}View`; });
+  if (section !== "overview" && section !== "analytics" && section !== "tracking") {
+    toast(`${section[0].toUpperCase()}${section.slice(1)} view is ready in this MVP.`);
+  }
   if (window.innerWidth < 701) $(".sidebar").classList.remove("open");
 }
 
@@ -61,6 +64,22 @@ $("#networkToggle").addEventListener("click", () => {
   $("#networkToggle").innerHTML = `${state.online ? "◉" : "○"} <span>${state.online ? "Connected" : "Offline"}</span>`;
   toast(state.online ? "Connection restored. Local queue will sync." : "Offline mode enabled. Your changes remain safe.");
 });
+$("#trackParcel").addEventListener("click", () => {
+  const id = $("#trackingId").value.trim().toUpperCase();
+  const validIds = ["RC-1048", "RC-1047", "RC-1046"];
+  if (!validIds.includes(id)) {
+    toast("Parcel not found. Try RC-1048, RC-1047, or RC-1046.");
+    return;
+  }
+  toast(`Live tracking loaded for ${id}.`);
+});
+$("#scanParcel").addEventListener("click", () => toast("Camera scanner ready. QR scan simulation active."));
+$("#shareTracking").addEventListener("click", () => {
+  const shareText = "RuralChain parcel RC-1048 is in transit to Mandi Central.";
+  if (navigator.clipboard) navigator.clipboard.writeText(shareText);
+  toast("Tracking update copied to clipboard.");
+});
+$("#exportAnalytics").addEventListener("click", () => toast("Analytics report prepared for download."));
 window.addEventListener("online", updateConnection);
 window.addEventListener("offline", updateConnection);
 updateConnection();
