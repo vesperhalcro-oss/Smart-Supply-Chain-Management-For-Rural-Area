@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123d34">
+  <title>RuralChain | Smart Supply Network</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">✦</span><div><strong>RuralChain</strong><small>Smart supply network</small></div></div>
+      <nav aria-label="Main navigation">
+        <button class="nav-item active" data-section="overview">⌂ <span>Overview</span></button>
+        <button class="nav-item" data-section="harvests">◴ <span>Harvest queue</span><b id="navQueueCount">3</b></button>
+        <button class="nav-item" data-section="bounties">⌁ <span>Route bounties</span></button>
+        <button class="nav-item" data-section="hubs">⌖ <span>Micro-hubs</span></button>
+      </nav>
+      <div class="sidebar-foot">
+        <div class="sync-pill"><span class="pulse"></span><span id="connectionLabel">Online</span><small id="syncLabel">Synced just now</small></div>
+        <button class="profile"><span class="avatar">AR</span><span><strong>Arjun Rao</strong><small>Hub coordinator</small></span><span>⋮</span></button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="mobile-brand"><span class="brand-mark">✦</span><strong>RuralChain</strong></div>
+        <div class="top-actions"><button class="icon-button" id="networkToggle" title="Toggle connection">◉ <span>Connected</span></button><button class="icon-button" title="Notifications">♧<i></i></button><button class="hamburger" id="menuToggle">☰</button></div>
+      </header>
+
+      <div class="content-wrap">
+        <section class="page-heading">
+          <div><p class="eyebrow">SUNDAY, SEPTEMBER 13, 2026</p><h1>Good morning, Arjun <span>👋</span></h1><p class="muted">Here is what is moving through your network today.</p></div>
+          <button class="primary-button" id="openHarvest"><span>+</span> Log new harvest</button>
+        </section>
+
+        <section class="stat-grid" aria-label="Supply chain summary">
+          <article class="stat-card"><div class="stat-icon green">◒</div><div><span class="stat-label">Active shipments</span><strong>24</strong><small class="trend up">↑ 12.5% <em>vs last week</em></small></div><div class="spark green-spark"></div></article>
+          <article class="stat-card"><div class="stat-icon orange">◷</div><div><span class="stat-label">In local queue</span><strong id="queueTotal">3</strong><small class="trend neutral">Awaiting network sync</small></div><div class="queue-dots"><i></i><i></i><i></i></div></article>
+          <article class="stat-card"><div class="stat-icon blue">♧</div><div><span class="stat-label">Avg. shelf life</span><strong>92<span class="unit">%</span></strong><small class="trend up">↑ 4.2% <em>this month</em></small></div><div class="spark blue-spark"></div></article>
+          <article class="stat-card"><div class="stat-icon purple">◈</div><div><span class="stat-label">Farmer earnings</span><strong>₹48,620</strong><small class="trend up">↑ 8.7% <em>this month</em></small></div><div class="spark purple-spark"></div></article>
+        </section>
+
+        <section class="dashboard-grid">
+          <article class="panel activity-panel">
+            <div class="panel-header"><div><h2>Shipment activity</h2><p class="muted">Live movement across your network</p></div><select id="activityRange" aria-label="Activity range"><option>Last 7 days</option><option>Last 30 days</option></select></div>
+            <div class="chart-wrap"><div class="chart-y"><span>40</span><span>30</span><span>20</span><span>10</span><span>0</span></div><div class="chart"><div class="chart-grid"></div><svg viewBox="0 0 700 220" role="img" aria-label="Shipment activity chart"><defs><linearGradient id="area" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#4ab997" stop-opacity=".25"/><stop offset="1" stop-color="#4ab997" stop-opacity="0"/></linearGradient></defs><path d="M0 160 C40 150,55 170,92 145 S145 118,180 135 S220 116,255 126 S295 105,330 112 S370 75,405 95 S445 80,480 92 S520 54,555 72 S600 40,630 57 S670 35,700 44 L700 220 L0 220 Z" fill="url(#area)"/><path d="M0 160 C40 150,55 170,92 145 S145 118,180 135 S220 116,255 126 S295 105,330 112 S370 75,405 95 S445 80,480 92 S520 54,555 72 S600 40,630 57 S670 35,700 44" fill="none" stroke="#35a987" stroke-width="3"/><circle cx="555" cy="72" r="5" fill="#fff" stroke="#35a987" stroke-width="3"/></svg><div class="chart-x"><span>Sep 07</span><span>Sep 08</span><span>Sep 09</span><span>Sep 10</span><span>Sep 11</span><span>Sep 12</span><span>Sep 13</span></div></div></div>
+            <div class="legend"><span><i class="legend-dot shipments"></i>Shipments</span><span><i class="legend-dot delivered"></i>Delivered</span><span class="chart-note">Last updated 2 mins ago</span></div>
+          </article>
+          <article class="panel telemetry-panel">
+            <div class="panel-header"><div><h2>Hub telemetry</h2><p class="muted">Solar Pod #04 · Village Center</p></div><button class="more">•••</button></div>
+            <div class="telemetry-main"><div class="ring"><div><strong id="podTemp">12.4°</strong><small>Temperature</small></div></div><span class="status-badge success">● Normal</span></div>
+            <div class="telemetry-stats"><div><span>Humidity</span><strong>68%</strong><small class="healthy">Optimal</small></div><div><span>Battery</span><strong>94%</strong><small class="healthy">Solar active</small></div></div>
+            <div class="pod-footer"><span>● Pod lock secure</span><button class="text-button" data-section="hubs">View hub details →</button></div>
+          </article>
+        </section>
+
+        <section class="lower-grid">
+          <article class="panel">
+            <div class="panel-header"><div><h2>Recent shipments</h2><p class="muted">Track produce from pickup to market</p></div><button class="text-button" data-section="harvests">View all →</button></div>
+            <div class="table-wrap"><table><thead><tr><th>Shipment</th><th>Route</th><th>Quality</th><th>Status</th><th>Value</th></tr></thead><tbody id="shipmentRows"><tr><td><span class="crop-icon tomato">●</span><div class="cell-main"><strong>Tomatoes</strong><small>#RC-1048 · 150 kg</small></div></td><td>Hub #04 → Mandi Central</td><td><span class="quality"><i style="width:96%"></i></span><b>96%</b></td><td><span class="status-badge transit">In transit</span></td><td><strong>₹8,250</strong><small>+ ₹420 bounty</small></td></tr><tr><td><span class="crop-icon grain">✦</span><div class="cell-main"><strong>Wheat</strong><small>#RC-1047 · 420 kg</small></div></td><td>Hub #02 → Grain Market</td><td><span class="quality"><i style="width:89%"></i></span><b>89%</b></td><td><span class="status-badge delivered">Delivered</span></td><td><strong>₹12,600</strong><small>Settled</small></td></tr><tr><td><span class="crop-icon onion">◉</span><div class="cell-main"><strong>Onions</strong><small>#RC-1046 · 280 kg</small></div></td><td>Hub #01 → Mandi Central</td><td><span class="quality"><i style="width:94%"></i></span><b>94%</b></td><td><span class="status-badge queued">At hub</span></td><td><strong>₹9,800</strong><small>Pending pickup</small></td></tr></tbody></table></div>
+          </article>
+          <article class="panel bounty-panel"><div class="panel-header"><div><h2>Route bounties</h2><p class="muted">Pickups near active routes</p></div><span class="live-label"><i></i> Live</span></div><div class="bounty-card"><div class="bounty-top"><span class="route-number">4B</span><div><strong>Village Hub #04</strong><small>→ Urban Mandi Central</small></div><span class="bounty-reward">₹420</span></div><div class="bounty-meta"><span>⌖ 18 km</span><span>◷ Pickup by 14:30</span><span>▣ 150 kg</span></div><button class="outline-button bounty-accept">Accept bounty</button></div><div class="bounty-card"><div class="bounty-top"><span class="route-number purple-bg">2A</span><div><strong>Solar Pod #02</strong><small>→ Grain Market</small></div><span class="bounty-reward">₹280</span></div><div class="bounty-meta"><span>⌖ 11 km</span><span>◷ Pickup by 16:00</span><span>▣ 80 kg</span></div><button class="outline-button bounty-accept">Accept bounty</button></div><button class="full-link" data-section="bounties">See all available bounties →</button></article>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="harvestModal" hidden><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-header"><div><p class="eyebrow">OFFLINE-READY FORM</p><h2 id="modalTitle">Log a new harvest</h2></div><button class="close-modal" id="closeHarvest">×</button></div><form id="harvestForm"><label>Crop type<select name="crop" required><option>Tomatoes (Grade A)</option><option>Wheat</option><option>Onions</option><option>Potatoes</option></select></label><div class="form-row"><label>Quantity (kg)<input name="quantity" type="number" min="1" value="150" required></label><label>Drop hub<select name="hub"><option>Solar Pod #04 - Village Center</option><option>Solar Pod #02 - East Field</option><option>Solar Pod #01 - Main Road</option></select></label></div><label>Pickup bounty (₹)<input name="bounty" type="number" min="0" value="420" required></label><div class="offline-note">◉ Saved locally first. It will sync automatically when the network is available.</div><button class="primary-button full" type="submit">Save harvest to local queue</button></form></div></div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
