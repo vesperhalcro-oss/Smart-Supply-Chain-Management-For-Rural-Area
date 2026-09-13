@@ -9,6 +9,9 @@ An offline-first MVP for connecting rural farmers, local transporters, micro-hub
 - Connection status and offline/online simulation
 - Route bounty acceptance flow
 - Shipment activity and hub telemetry views
+- Analytics tab with hotspot and risk intelligence
+- Parcel tracking with custody timeline, ETA, and condition score
+- Updated project proposal with product mockups and rendered screens
 - Zero-dependency Node.js static server
 - Environment-driven port and application name
 
